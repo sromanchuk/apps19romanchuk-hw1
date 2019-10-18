@@ -317,4 +317,40 @@ public class TemperatureSeriesAnalysisTest {
 
         assertEquals(expResult, actualResult, 0.00001);
     }
+    
+    @Test
+    public void testSummaryStatistics() {
+
+        double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
+
+        TemperatureSeriesAnalysis test = new TemperatureSeriesAnalysis(temperatureSeries);
+
+        double expAvg = 1.0;
+
+        double expDev = 3.741657;
+
+        double expMin = -5.0;
+
+        double expMax = 5.0;
+
+
+        TempSummaryStatistics actualResult = test.summaryStatistics();
+
+        double actualAvg = actualResult.avgTemp;
+
+        double actualDev = actualResult.devTemp;
+
+        double actualMin = actualResult.minTemp;
+
+        double actualMax = actualResult.maxTemp;
+
+
+        assertEquals(expAvg, actualAvg, 0.00001);
+
+        assertEquals(expDev, actualDev, 0.00001);
+
+        assertEquals(expMin, actualMin, 0.00001);
+
+        assertEquals(expMax, actualMax, 0.00001);
+    }
 }
